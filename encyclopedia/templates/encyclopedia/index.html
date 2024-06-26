@@ -1,0 +1,30 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1>All Pages</h1>
+
+    {% if search %}
+    <div class="alert alert-success" role="alert">
+        We found some of your results of "{{ value }}", If you not satisfied <a href="/" class="alert-link">Go Back To Index</a>, Or else enter valid contents...
+    </div>
+        <center><h2>Searching for... {{ value }}</h2></center>
+
+    {% else %}
+        <center><h1 class="indexh"> </h1></center></br>
+    {% endif %}
+
+    <table class="table">
+        <tbody>
+        {% for entry in entries %}
+            <tr class="tabletr">
+                <td><a href="/wiki/{{ entry }}">{{ entry }}</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

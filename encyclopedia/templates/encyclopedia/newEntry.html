@@ -1,0 +1,31 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {% if edit %}
+        Editing {{ entryTitle }}
+    {% else %}
+        New entry
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    {% if edit %}
+    <div class="alert alert-success" role="alert">
+        Here you can edit your wiki, If you want to create a new wiki,<a href="{% url 'newEntry' %}" class="alert-link"> Please Click here</a>
+    </div>
+        <h1>Editing {{ entryTitle }}</h1>
+    {% else %}
+    <div class="alert alert-primary" role="alert">
+        Make your wiki!
+    </div>
+        <h1 class="NewEhead">Create your entry here:</h1>
+    {% endif %}
+    <br>
+    <div class="form-group">
+        <form action="{% url 'newEntry' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <center><input type = "submit" class="btn btn-outline-primary"></center>
+        </form>
+    </div>        
+{% endblock %}

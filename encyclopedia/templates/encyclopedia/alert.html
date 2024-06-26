@@ -1,0 +1,26 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ entryTitle }} not found!
+{% endblock %}
+
+{% block body %}
+
+    <div class="alert alert-danger" role="alert">
+    Error!<a href="{{ error_link }}" class="alert-link"> Please Go back To Site</a>. Looks new to me...
+    </div>
+    <div class="errorh">
+    <center><h1><i><u>Error</u>!!!</i></h1></center>
+    </div>
+
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Sorry, something went wrong!!!</h4>
+        <p>{{ massege1 }}<a href="/">Click here</a>
+        Or if you want to create your new entry, <a href="{% url 'newEntry' %}">Click here</a>
+        </p>
+        <hr>
+        <p class="mb-0">{{ massege2 }}</p>
+    </div>
+
+
+{% endblock %}
